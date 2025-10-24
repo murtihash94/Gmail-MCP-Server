@@ -1,0 +1,11 @@
+# Python dependencies for Gmail MCP Server (Databricks Apps version)
+# Note: For development with uv, see pyproject.toml
+# For production, use: pip install -r requirements.txt
+
+fastapi>=0.115.12
+mcp[cli]>=1.10.0
+uvicorn>=0.34.2
+google-auth-oauthlib>=1.2.0
+google-auth-httplib2>=0.2.0
+google-api-python-client>=2.151.0
+email-validator>=2.1.0

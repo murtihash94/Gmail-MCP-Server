@@ -1,9 +1,19 @@
-# Gmail AutoAuth MCP Server
+# Gmail MCP Server
 
-A Model Context Protocol (MCP) server for Gmail integration in Claude Desktop with auto authentication support. This server enables AI assistants to manage Gmail through natural language interactions.
+A Model Context Protocol (MCP) server for Gmail integration with auto authentication support. This server enables AI assistants to manage Gmail through natural language interactions.
 
 ![](https://badge.mcpx.dev?type=server 'MCP Server')
 [![smithery badge](https://smithery.ai/badge/@gongrzhe/server-gmail-autoauth-mcp)](https://smithery.ai/server/@gongrzhe/server-gmail-autoauth-mcp)
+
+## 🚀 **NEW: Databricks Apps Deployment**
+
+This server can now be deployed to **Databricks Apps** for enterprise-grade, scalable Gmail automation! 
+
+For Databricks deployment instructions, see **[DATABRICKS_DEPLOYMENT.md](./DATABRICKS_DEPLOYMENT.md)**.
+
+The repository now includes both:
+- **TypeScript/Node.js version** (original, for local stdio usage)
+- **Python/FastMCP version** (new, for Databricks Apps deployment with Streamable HTTP)
 
 
 ## Features
@@ -27,6 +37,22 @@ A Model Context Protocol (MCP) server for Gmail integration in Claude Desktop wi
 - Simple OAuth2 authentication flow with auto browser launch
 - Support for both Desktop and Web application credentials
 - Global credential storage for convenience
+
+## Deployment Options
+
+### 1. Local Development (TypeScript/Node.js)
+The original TypeScript implementation for local usage with stdio transport.
+
+### 2. Databricks Apps (Python/FastMCP) 🆕
+Enterprise-grade deployment on Databricks Apps with Streamable HTTP transport.
+
+**→ See [DATABRICKS_DEPLOYMENT.md](./DATABRICKS_DEPLOYMENT.md) for complete Databricks deployment instructions.**
+
+---
+
+## TypeScript/Node.js Version (Local Development)
+
+This section covers the original TypeScript implementation for local usage.
 
 ## Installation & Authentication
 

@@ -4,10 +4,36 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# UV/Python package manager
+.uv/
+uv.lock
+
 # Build
 build/
 dist/
 *.tsbuildinfo
+.build/
 
 # Environment
 .env
@@ -30,3 +56,4 @@ gcp-oauth.keys.json
 credentials.json
 .calendar-server-credentials.json 
 .gcp-oauth.keys.json
+.gmail-mcp/
