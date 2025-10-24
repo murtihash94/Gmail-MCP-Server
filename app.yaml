@@ -1,1 +1,8 @@
-command: ["uv", "run", "gmail-mcp-server"]
+command: ["node", "dist/http-server.js"]
+env:
+  - name: PORT
+    value: "8000"
+  - name: GMAIL_CREDENTIALS_PATH
+    value: /dbfs/gmail-mcp/credentials.json
+  - name: GMAIL_OAUTH_PATH
+    value: /dbfs/gmail-mcp/gcp-oauth.keys.json

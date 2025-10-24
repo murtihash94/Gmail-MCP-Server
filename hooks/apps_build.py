@@ -12,6 +12,7 @@ class AppsBuildHook(BuildHookInterface):
     The following steps are performed:
     - Remove the ./.build folder if it exists.
     - Copy the artifact_path to the ./.build folder.
+    - Copy Node.js dependencies and built files
     - Write the name of the artifact to a requirements.txt file in the ./.build folder.
     - Copy necessary static files and configurations.
     - The resulting build directory is printed to the console.
@@ -40,9 +41,26 @@ class AppsBuildHook(BuildHookInterface):
         self.app.display_info(f"Copying {artifact_path} to {build_dir}")
         shutil.copy(artifact_path, build_dir)
 
+        # Copy Node.js dist folder
+        dist_dir = Path("dist")
+        if dist_dir.exists():
+            self.app.display_info(f"Copying {dist_dir} to {build_dir}")
+            shutil.copytree(dist_dir, build_dir / "dist")
+        
+        # Copy node_modules
+        node_modules = Path("node_modules")
+        if node_modules.exists():
+            self.app.display_info(f"Copying {node_modules} to {build_dir}")
+            shutil.copytree(node_modules, build_dir / "node_modules")
+        
+        # Copy package.json
+        package_json = Path("package.json")
+        if package_json.exists():
+            self.app.display_info(f"Copying {package_json} to {build_dir}")
+            shutil.copy(package_json, build_dir)
+
         # write the name of the artifact to a requirements.txt file in the ./.build folder
         requirements_file = build_dir / "requirements.txt"
-
         requirements_file.write_text(Path(artifact_path).name, encoding="utf-8")
 
         app_file = Path("app.yaml")
