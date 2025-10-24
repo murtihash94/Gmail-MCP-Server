@@ -5,6 +5,10 @@ A Model Context Protocol (MCP) server for Gmail integration in Claude Desktop wi
 ![](https://badge.mcpx.dev?type=server 'MCP Server')
 [![smithery badge](https://smithery.ai/badge/@gongrzhe/server-gmail-autoauth-mcp)](https://smithery.ai/server/@gongrzhe/server-gmail-autoauth-mcp)
 
+## Deployment Options
+
+- **Local/Desktop**: Use with Claude Desktop or other MCP clients via stdio transport (see [Installation & Authentication](#installation--authentication))
+- **Databricks Apps**: Deploy as a Databricks App for HTTP-based access (see [Databricks Deployment Guide](DATABRICKS_DEPLOYMENT.md))
 
 ## Features
 
@@ -722,6 +726,41 @@ The server includes efficient batch processing capabilities:
    - **Permission Errors**: Check that the server has read access to attachment files
    - **Size Limits**: Gmail has a 25MB attachment size limit per email
    - **Download Failures**: Verify you have write permissions to the download directory
+
+## Databricks Apps Deployment
+
+This MCP server can be deployed as a Databricks App, enabling HTTP-based access for AI agents and integrations. The Databricks deployment:
+
+- Uses **FastAPI** with **Streamable HTTP** transport for MCP protocol
+- Maintains the full Node.js/TypeScript implementation for Gmail operations
+- Provides a web interface showing connection details and available features
+- Supports authentication via Databricks tokens
+
+**For complete deployment instructions, see the [Databricks Deployment Guide](DATABRICKS_DEPLOYMENT.md).**
+
+Quick deployment example:
+```bash
+# Install uv (Python package installer)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Build the wheel
+uv build --wheel
+
+# Deploy using Databricks CLI
+databricks bundle deploy
+databricks bundle run gmail-mcp-server
+```
+
+Connect to deployed server:
+```python
+from mcp.client.streamable_http import streamablehttp_client
+from mcp import ClientSession
+
+async with streamablehttp_client("https://your-app.databricksapps.com/mcp/") as streams:
+    async with ClientSession(*streams[:2]) as session:
+        await session.initialize()
+        # Use Gmail tools via MCP
+```
 
 ## Contributing
 

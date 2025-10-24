@@ -1,0 +1,4 @@
+fastapi>=0.115.12
+mcp[cli]>=1.10.0
+uvicorn>=0.34.2
+hatchling>=1.27.0
