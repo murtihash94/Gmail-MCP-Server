@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail MCP Server on Databricks Apps</title>
+    <script src="https://cdn.tailwindcss.com" 
+            integrity="sha384-heAcSxH8p7N3RGKqPOqJR4z8c6KGqtQW3vX8gFZf6F03y1VREqDq0e7kx8yLj8vK" 
+            crossorigin="anonymous"></script>
+    <!-- Highlight.js CSS and JS -->
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+          integrity="sha512-rO+olRTkcf304DQBxSWxln8JXCzTHlKnIdnMUwYvQa9/Jd4cQaNkItIUj6Z4nvW1dqK0SKXLbn9h4KwZTNtAyw=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+            integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"
+            integrity="sha512-Nh48yGp3RcYLQW32L1I0FI3OjcTtWmjnWW5GEJ0A6yM0LJO/1nI8jb8KxFmC6eV3gGo3fGM7ynHWx6c3QUz0eg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.highlightAll();
+        });
+    </script>
+</head>
+
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+    <!-- Hero Section -->
+    <div class="py-12 sm:py-16 h-screen flex items-center justify-center">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <!-- Logos Placeholder -->
+            <div class="flex justify-center items-center gap-8 mb-8">
+                <!-- Databricks Logo -->
+                <div class="w-24 h-24 rounded-full flex items-center justify-center">
+                    <img src="https://cdn.bfldr.com/9AYANS2F/at/k8bgnnxhb4bggjk88r4x9snf/databricks-symbol-color.svg?auto=webp&format=png"
+                        alt="Databricks Logo" class="w-20 h-20">
+                </div>
+                <!-- MCP Logo -->
+                <div class="w-24 h-24 rounded-full flex items-center justify-center">
+                    <img src="https://avatars.githubusercontent.com/u/182288589?s=200&v=4" alt="MCP Logo"
+                        class="w-20 h-20 rounded-full">
+                </div>
+                <!-- Gmail Icon -->
+                <div class="w-24 h-24 rounded-full flex items-center justify-center">
+                    <svg class="w-20 h-20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/>
+                        <path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/>
+                        <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
+                        <path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"/>
+                        <path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="text-4xl font-bold text-white sm:text-5xl text-balance">
+                Gmail MCP Server on Databricks Apps
+            </h1>
+            <p class="mt-6 text-xl text-gray-300">
+                AI-powered Gmail integration with auto authentication, deployed on Databricks Apps.
+            </p>
+            <div class="mt-10">
+                <a href="#connect"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connection Section -->
+    <div id="connect" class="py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-center text-white">Connect to the Server</h2>
+            <div class="mt-10 bg-gray-800 shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6">
+                    <h3 class="text-lg leading-6 font-medium text-white">Connection Details</h3>
+                </div>
+                <div class="border-t border-gray-700 px-4 py-5 sm:p-6">
+                    <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                        <div class="sm:col-span-1">
+                            <dt class="text-sm font-medium text-gray-400">
+                                Server URL
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-100">
+                                <code
+                                    class="bg-gray-900 px-2 py-1 rounded">https://your.app.url.databricksapps.com/mcp/</code>
+                            </dd>
+                        </div>
+                        <div class="sm:col-span-1">
+                            <dt class="text-sm font-medium text-gray-400">
+                                Transport Type
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-100">
+                                <code class="bg-gray-900 px-2 py-1 rounded">
+                                    Streamable HTTP
+                                </code>
+                            </dd>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <dt class="text-sm font-medium text-gray-400">
+                                Example Connection (Python)
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-100">
+                                <pre class="bg-gray-900 p-3 rounded overflow-x-auto">
+<code class="language-python">
+from databricks.sdk import WorkspaceClient
+from databricks_mcp import DatabricksOAuthClientProvider
+from mcp.client.streamable_http import streamablehttp_client as connect
+from mcp import ClientSession
+
+client = WorkspaceClient()
+
+async def main():
+    # Connect to a streamable HTTP server
+    app_url = "https://your.app.url.databricksapps.com/mcp/"
+    async with connect(app_url, auth=DatabricksOAuthClientProvider(client)) as (
+        read_stream,
+        write_stream,
+        _,
+    ):
+        # Create a session using the client streams
+        async with ClientSession(read_stream, write_stream) as session:
+            # Initialize the connection
+            await session.initialize()
+            # Call a Gmail tool
+            tool_result = await session.call_tool("send_email", {
+                "to": ["recipient@example.com"],
+                "subject": "Hello from Databricks",
+                "body": "This email was sent via MCP on Databricks Apps!"
+            })
+</code>
+                                </pre>
+                            </dd>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <dt class="text-sm font-medium text-gray-400">
+                                Or use your favourite tool
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-100">
+                                You can also connect using tools like <strong>Claude Desktop</strong>, <strong>MCP
+                                    Inspector</strong>, or any other compatible MCP client.
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-12 bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-white mb-2">📧 Email Management</h3>
+                    <p class="text-gray-300">Send, draft, read, search, and manage emails with full attachment support</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-white mb-2">🏷️ Label Management</h3>
+                    <p class="text-gray-300">Create, update, delete and organize Gmail labels programmatically</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-white mb-2">🔍 Advanced Search</h3>
+                    <p class="text-gray-300">Use Gmail's powerful search syntax to find emails quickly</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-white mb-2">📎 Attachments</h3>
+                    <p class="text-gray-300">Send and download email attachments with full file type support</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-white mb-2">⚡ Batch Operations</h3>
+                    <p class="text-gray-300">Process multiple emails efficiently with batch modify and delete</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-white mb-2">🔐 Auto Authentication</h3>
+                    <p class="text-gray-300">OAuth2 authentication with auto browser launch and credential storage</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Documentation Section -->
+    <div class="py-12">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Documentation</h2>
+            <p class="text-lg text-gray-300 mb-6">
+                Learn more about the Gmail MCP Server and how to deploy it on Databricks Apps.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://github.com/murtihash94/Gmail-MCP-Server" target="_blank" rel="noopener"
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                    View on GitHub
+                </a>
+                <a href="https://github.com/databrickslabs/mcp" target="_blank" rel="noopener"
+                    class="inline-flex items-center px-6 py-3 border border-gray-500 text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600">
+                    Databricks MCP Labs
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

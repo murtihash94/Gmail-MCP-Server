@@ -8,6 +8,13 @@ yarn-error.log*
 build/
 dist/
 *.tsbuildinfo
+.build/
+*.whl
+uv.lock
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
 
 # Environment
 .env
