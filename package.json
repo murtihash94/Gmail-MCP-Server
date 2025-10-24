@@ -50,6 +50,7 @@
     "@types/express": "^5.0.3",
     "@types/mime-types": "^2.1.4",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
     "google-auth-library": "^9.4.1",
     "googleapis": "^129.0.0",
     "mcp-evals": "^1.0.18",
