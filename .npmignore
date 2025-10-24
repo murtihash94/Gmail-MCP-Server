@@ -32,7 +32,37 @@ tsconfig.json
 test/
 coverage/
 .nyc_output/
+src/evals/
 
 # Misc
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Python/Databricks files (not needed in npm package)
+src_python/
+__pycache__/
+*.pyc
+*.pyo
+pyproject.toml
+uv.lock
+requirements.txt
+databricks.yml
+hooks/
+.build/
+deploy-databricks.sh
+DATABRICKS_DEPLOYMENT.md
+
+# Examples and docs
+examples/
+filter-examples.md
+llms-install.md
+mcp-config.json
+smithery.yaml
+setup.js
+docker-compose.yml
+Dockerfile
+
+# Credentials (should never be in package)
+*.keys.json
+credentials.json
+gcp-oauth.keys.json 
